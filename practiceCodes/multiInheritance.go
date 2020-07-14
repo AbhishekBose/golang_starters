@@ -1,27 +1,31 @@
 package main
-
 import "fmt"
 
-type Camera struct{}
+type Camera struct{
+	a string
+}
 
-func (c *Camera) TakePicture() string {
+func (c* Camera) TakeAPicture() string { //method of Camera
 	return "Click"
 }
 
-type Phone struct{}
+type Phone struct {
+	b string
+ }
 
-func (p *Phone) Call() string {
-	return "Ring ring ring ring"
+
+func (p* Phone) Call() string { //method of Camera
+	return "Ring Ring"
 }
 
-//multiple inheritance
-type SmartPhone struct { //Can use method of both the structs
+type SmartPhone struct {
 	Camera
 	Phone
 }
 
 func main() {
 	cp := new(SmartPhone)
-	fmt.Println("It exhibits behaviour of a Camera: ", cp.TakePicture())
-	fmt.Println(cp.Call())
-}
+	fmt.Println("Our new SmartPhone exhibits multiple behaviors ...")
+	fmt.Println("It exhibits behavior of a Camera: ", cp.TakeAPicture())
+	fmt.Println("It works like a Phone too: ", cp.Call())
+  }
